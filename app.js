@@ -14,24 +14,15 @@ var percentWidth = 0;
 var heartLeft = -3.2;
 var progressLoad = setInterval(progressInterva, 100);
 
-// ตรวจสอบว่าเพลงกำลังเล่นอยู่หรือไม่
+// ฟังก์ชันนี้จะเล่นเพลงโดยอัตโนมัติเมื่อหน้าเว็บโหลด
 window.onload = function() {
-    if (localStorage.getItem("musicPlaying") === "true") {
-        loveMusic.play();
-    }
+    var loveMusic = document.getElementById("loveMusic");
+    
+    loveMusic.play().catch(function(error) {
+        console.log("Error playing music:", error);
+    });
 };
 
-// เริ่มเล่นเพลงเมื่อโหลดเสร็จ
-loveMusic.play();
-localStorage.setItem("musicPlaying", "true");
-
-button.addEventListener("click", function(){
-    button.style.transform = "scale(0.8)";
-    setTimeout(()=>{
-        button.style.transform = "scale(1)";
-        window.location.href = "./love/love.html";
-    },200);
-});
 
 function progressInterva() {
     if(count == 100 && percentWidth == 100) {
