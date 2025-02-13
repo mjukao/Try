@@ -1,3 +1,4 @@
+
 var progress = document.querySelector(".progress");
 var percent = document.querySelector(".percent");
 var textBox = document.querySelector(".textBox");
@@ -9,19 +10,23 @@ var heartItem1 = document.querySelector(".heartItem.item1");
 var heartItem2 = document.querySelector(".heartItem.item2");
 var heartItem3 = document.querySelector(".heartItem.item3");
 var loveMusic = document.getElementById("loveMusic"); // เพิ่มเพลง
+var playButton = document.getElementById("playMusic");
 var count = 0;
 var percentWidth = 0;
 var heartLeft = -3.2;
 var progressLoad = setInterval(progressInterva, 100);
 
-// ฟังก์ชันนี้จะเล่นเพลงโดยอัตโนมัติเมื่อหน้าเว็บโหลด
-window.onload = function() {
-    var loveMusic = document.getElementById("loveMusic");
-    
-    loveMusic.play().catch(function(error) {
+// แสดงปุ่มเมื่อหน้าเว็บโหลด
+playButton.style.display = "block";
+
+// หลังจาก 1 วินาทีให้เพลงเล่นอัตโนมัติ
+setTimeout(function () {
+    loveMusic.play().then(function () {
+        playButton.style.display = "none"; // ซ่อนปุ่มเมื่อเพลงเริ่มเล่น
+    }).catch(function (error) {
         console.log("Error playing music:", error);
     });
-};
+}, 1000); // เพลงจะเล่นหลังจาก 1 วินาที
 
 
 function progressInterva() {

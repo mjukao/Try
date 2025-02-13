@@ -54,6 +54,22 @@ body{
         transform: scale(0.8) rotate(-40deg) translate3d(-50px, -400px, 0);
     }
 } */
+ /* สไตล์ปุ่ม */
+#playMusic {
+    padding: 15px 30px;
+    font-size: 20px;
+    background-color: #ff6699;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: opacity 0.5s ease;
+  }
+  
+  #playMusic:hover {
+    background-color: #ff3366;
+  }
+  
 @keyframes heartScale{
     0%{
         transform: scale(0);
