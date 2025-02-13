@@ -1,4 +1,3 @@
-
 var progress = document.querySelector(".progress");
 var percent = document.querySelector(".percent");
 var textBox = document.querySelector(".textBox");
@@ -28,6 +27,13 @@ setTimeout(function () {
     });
 }, 1000); // เพลงจะเล่นหลังจาก 1 วินาที
 
+button.addEventListener("click", function(){
+    button.style.transform = "scale(0.8)";
+    setTimeout(()=>{
+        button.style.transform = "scale(1)";
+        window.location.href = "./love/love.html";
+    },200);
+});
 
 function progressInterva() {
     if(count == 100 && percentWidth == 100) {
